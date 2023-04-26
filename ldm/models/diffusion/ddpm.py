@@ -769,6 +769,8 @@ class LatentDiffusion(DDPM):
         x = super().get_input(batch, k)
         if bs is not None:
             x = x[:bs]
+        
+        #TODO 这一段是输入的目标的encoding的部分，取到这个z
         x = x.to(self.device)
         encoder_posterior = self.encode_first_stage(x)
         z = self.get_first_stage_encoding(encoder_posterior).detach()

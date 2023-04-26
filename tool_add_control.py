@@ -23,8 +23,8 @@ def get_node_name(name, parent_name):
         return False, ''
     return True, name[len(parent_name):]
 
-
-model = create_model(config_path='./models/cldm_v15.yaml')
+#用哪个模型的结构就用这个结构来生成
+model = create_model(config_path='./models/my_dataset.yaml')
 
 pretrained_weights = torch.load(input_path)
 if 'state_dict' in pretrained_weights:
